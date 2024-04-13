@@ -1,4 +1,6 @@
-
+<?PHP
+include "koneksi.php"?>
+//untuk menyambung ke koneksi.php
 <!DOCTYPE html>
 <html lang="en">
 
