@@ -1,0 +1,82 @@
+dalam php
+
+session_start();        //memulai sesi untuk mengakses data yang ada
+session_unset();        //menghapus semua variable 
+session_destroy();      //menghancurkan sesi
+
+header("Location: ../login/login.php");     //mengalihkan halaman
+exit();         //memberhentikan program
+
+
+
+form tambah dulu
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section id="inputan" class="inputan">
+        <div class="form-input">
+            <form method="post" enctype="multipart/form-data">
+                <div class="namaproduk">
+                    <label for="">Judul Produk</label>
+                    <input type="text"  name="namaproduk" required>
+                </div>
+                <div class="hargaproduk">
+                    <label for="">Harga Produk</label>
+                    <input type="text" name="hargaproduk" required>
+                </div>
+                <div class="kategori">
+                    <label for="">Kategori Produk</label>
+                    <input type="text"  name="kategori" required>
+                </div>
+                <div class="Deskripsi Produk">
+                    <label for="">Deskripsi Produk</label>
+                    <input type="text"  name="deskripsi" required>
+                </div>
+                <div class="img">
+                    <label for="">Uploade gambar Produk</label>
+                    <input type="file" name="img" id="img" ><br><br>
+
+                </div>
+               <input type="submit" name="submit" id="submit" value="Upload">
+            </form>
+        </div>
+    </section>
+</body>
+</html>
+<?php
+$koneksi = mysqli_connect("localhost", "root", "", "cat");
+
+
+if (isset($_POST['submit'])){
+    $nama = $_FILES['img']['name'];
+    $lokasi = $_FILES['img']['tmp_name'];
+    move_uploaded_file($lokasi, "/landingpage/asets/img/menu-kucing/".$nama);
+    $koneksi->query("INSERT INTO list_content(judul_produk, harga, title, deskripsi, img) VALUES('$_POST[namaproduk]','$_POST[hargaproduk]','$_POST[kategori]','$_POST[deskripsi]','$nama')");
+    echo"<div class='alert alert-info'>Data tersimpan</div>";
+    echo "<meta http-equiv='refresh' content='1;url=index.php?halaman=produk'>";
+}
+?>
+
+
+hapusdata code :
+<?php
+$koneksi = mysqli_connect("localhost", "root", "", "cat");
+$ambil = $koneksi ->query("SELECT * FROM list_content WHERE id_produk = '$_GET[id]' ");
+$datapecah = $ambil -> fetch_assoc();
+$fotoproduk = $datapecah['img'];
+if(file_exists("/landingpage/asets/img/menu-kucing?$fotoproduk")){
+    unlink("/landingpage/asets/img/menu-kucing/$fotoproduk");
+
+}
+$koneksi -> query("DELETE FROM list_content WHERE id_produk = '$_GET[id]'");
+echo"<script>alert('Produk telah dihapus');</script>";
+echo"<script>location= 'index.php?page=products'</script>";
+?>
+
+error

@@ -1,0 +1,298 @@
+:root {
+    --primary: #FCF596;
+
+    --accendt: #FBD288;
+
+    --navbar: #FBD288;
+}
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+height: 100vh;
+}
+header {
+background-color: var(--primary);
+color: black;
+padding: 5px 0;
+text-align: center;
+}
+header h1{
+  font-size: 2.2rem;
+
+}
+.pengenalan {
+    font-size: 1.2rem;
+    width: 100%;
+    
+    
+}
+
+.row {
+display: flex;  
+}
+/* animasi start */
+  /* animasi text */
+  /* .wrapper .animasi-text {
+    height: 90px;
+    line-height: 90px;
+    overflow: hidden;
+  }
+  .animasi-text li {
+    list-style: none;
+    color: black;
+    font-size: 60.5px;
+    font-weight: 600;
+    font-family: Arial;
+    position: relative;
+    top: 0;
+    animation: slide 12s steps(4) infinite;
+  }
+  @keyframes slide {
+    100% {
+      top: -360px;
+    }
+  }
+  .animasi-text li span {
+    position: relative;
+    margin: 1rem 0;
+    line-height: 90px;
+  }
+  .animasi-text li span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 78px;
+    width: 100%;
+    background-color: white;
+    border-left: 2px solid #000000;
+    animation: typing 3s steps(14) infinite;
+  }
+  @keyframes typing {
+    40%,
+    60% {
+      left: calc(100% + 30%);
+    }
+    100% {
+      left: 0;
+    }
+  } */
+/* animasi end */
+.container {
+display: flex;
+flex: 1;
+}
+aside {
+width: 9.5rem;
+background-color: var(--navbar);
+padding: 10px;
+transition: transform 0.5 case , baground-color 0.5s ;
+box-shadow: 2px 2px 2px rgba(189, 177, 177, 0.8);
+}
+main {
+flex: 1;
+padding: 10px;
+}
+nav ul {
+list-style-type: none;
+padding: 0;
+}
+nav ul li {
+margin: 1.2rem 5px 1rem 3px ;
+font-size: 1.2rem;
+background-blend-mode: white ;
+}
+nav ul li a {
+text-decoration: none;
+color: #333;
+}
+nav ul li a:hover {
+color: white;
+box-shadow: 2px 2px 2px rgba(83, 75, 75, 0.8);
+  padding: 0.5rem;
+}
+/* isi start */
+
+/* isi end */
+ 
+footer {
+background-color: #FF9C73;
+color: black;
+text-align: center;
+padding: 5px;
+opacity: 0.8;
+box-shadow: 2px 2px 2px rgba(189, 177, 177, 0.8);
+}
+
+/* form start */
+
+
+
+/* Style CSS untuk form */
+
+
+section {
+  width: 23rem;
+  /* jika di auto maka disesuaikan */
+  margin: 40px 5px;    
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.form input[type="text" ] ,
+.form input[type="email"] {
+  width: 97%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form input[type="submit"] {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+
+
+
+
+/* form end */
+
+/*responsive start*/
+
+/* Untuk layar lebih besar dari 768px */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+    .burger{
+      display: none;
+    }
+}
+
+/* Untuk layar lebih kecil dari 768px */
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+    }
+    img {
+    max-width: 100%;
+    height: auto;
+}
+aside{
+     width: auto; 
+}
+
+
+/*menu start*/
+  /* Hamburger Icon */
+.burger {
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    position: fixed;
+    top: 10px;
+    margin-top: 50px;
+    left: 10px;
+    z-index: 2;
+}
+
+/* Sidebar Style */
+.navbar {
+    width: 45%;
+    height: 100vh;
+    background-color: var(--navbar);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden off-screen */
+    transition: 0.3s ease;
+    z-index: 1;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+/*.navbar ul li {
+    margin: 20px 0;
+}*/
+
+.navbar ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+nav ul li {
+margin: 1.2rem 5px 1rem 3px ;
+font-size: 1.2rem;
+background-blend-mode: white ;
+}
+/* Hover effect without disturbing layout */
+nav ul li a:hover {
+    color: white;
+    box-shadow: 2px 2px 2px rgba(83, 75, 75, 0.8);
+  outline: 2px solid rgba(83, 75, 75, 0.8); /* Adds an outline instead of padding/margin */
+     
+    transform: scale(1.05); /* Slightly scales up without changing layout */
+}
+
+
+/* Toggle Sidebar Class */
+.navbar.active {
+    left: 0; /* Show sidebar */
+}
+/*menu end*/
+/*kontak start*/
+.section .form{
+  width: 15rem;
+}
+/*kontak end*/
+/*home start*/
+.pengenalan {
+    font-size: 1.2rem;
+    width: 50%;
+    
+    
+}
+.pengenalan1{
+ width: 5px;
+}
+
+.row {
+display: flex;  
+flex-direction: column-reverse;
+}
+/*home end*/
+}
+
+
+/*responsive end*/
